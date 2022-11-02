@@ -125,7 +125,7 @@ let cityData = [{
 //driver function used for display and passing values.
 function citySort() {
 
-    
+    //function we need to implement
     sortByPopulation(cityData, "desc");
     
     //extra credit functions
@@ -145,6 +145,14 @@ function citySort() {
 
 //takes an array of objects and sorts by population. 
 function sortByPopulation(cityData, sortDir) {
+    cityData.sort((a,b) => {
+        if (sortDir == "asc"){
+            return (a.population - b.population);
+        }else{
+            return (b.population - a.population);
+        }
+        
+    });
     
 }
 
