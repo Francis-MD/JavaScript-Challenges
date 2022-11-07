@@ -163,5 +163,23 @@ function sortByAge(cityData, sortDir){
 
 //takes an array of objects and sorts by city name. 
 function sortyByName(cityData) {
+    cityData.sort((a,b) => {
+        let ca = a.city.toLowerCase();
+        let cb = b.city.toLowerCase();
+
+        let compare = 0; 
+
+        if (ca > cb) {
+            compare = 1;  
+        }else if (ca < cb) {
+            compare = -1;
+        }
+
+        if (sortDir = "asc") {
+            return compare;
+        }else {
+            return compare * -1;
+        }
+    });
     
 }
