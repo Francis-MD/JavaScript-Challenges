@@ -130,7 +130,7 @@ function citySort() {
     
     //extra credit functions
     //sortyByName(cityData);
-    //sortByAge(cityData, "asc");
+    sortByAge(cityData, "desc");
     
     //used for display purposes. not need to change
     tbody = document.getElementById("results");
@@ -158,12 +158,20 @@ function sortByPopulation(cityData, sortDir) {
 
 //takes an array of objects and sorts by median age. 
 function sortByAge(cityData, sortDir){
+    cityData.sort((a, b) => {
+        if (sortDir == "asc") {
+            return (a.median_age - b.median_age)
+        }else {
+            return (b.median_age - a.median_age);
+        }
+    })
   
 }
 
 //takes an array of objects and sorts by city name. 
-function sortyByName(cityData) {
-    cityData.sort((a,b) => {
+function sortyByName(cityData, sortDir) {
+    cityData.sort((a, b) => {
+        
         let ca = a.city.toLowerCase();
         let cb = b.city.toLowerCase();
 
@@ -172,10 +180,10 @@ function sortyByName(cityData) {
         if (ca > cb) {
             compare = 1;  
         }else if (ca < cb) {
-            compare = -1;
+            compare = -1
         }
 
-        if (sortDir = "asc") {
+        if (sortDir == "asc") {
             return compare;
         }else {
             return compare * -1;
