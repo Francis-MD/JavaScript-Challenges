@@ -28,6 +28,24 @@ function checkPalindrome() {
 //takes an string to check if it is a palindrome.
 //returns true or false. 
 function isPalindrome(str) {
+    cleanStr = str.replace(/[^A-Z0-9]/ig, '');
+
+    cleanStr = cleanStr.toLowerCase();
+
+    let reversedStr = '';
+
+    //reverse the string
+    for (let index = cleanStr.length -1; index >= 0; index--) {
+        
+        reversedStr += cleanStr[index];
+        
+    }
+
+    //check for palindrome
+    if (cleanStr == reversedStr) {
+        return true;
+        
+    }
 
     return false;
 }
